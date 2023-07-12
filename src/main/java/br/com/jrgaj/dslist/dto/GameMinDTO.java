@@ -3,6 +3,7 @@ package br.com.jrgaj.dslist.dto;
 import java.util.Objects;
 
 import br.com.jrgaj.dslist.entities.Game;
+import br.com.jrgaj.dslist.projections.GameMinProjection;
 import jakarta.persistence.Column;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -32,6 +33,14 @@ public class GameMinDTO {
 		this.year = entity.getYear();
 		this.imgUrl = entity.getImgUrl();
 		this.shortDescription = entity.getShortDescription();
+	}
+	
+	public GameMinDTO(GameMinProjection projection) {
+		this.id = projection.getId();
+		this.title = projection.getTitle();
+		this.year = projection.getGameYear();
+		this.imgUrl = projection.getImgUrl();
+		this.shortDescription = projection.getShortDescription();
 	}
 
 
